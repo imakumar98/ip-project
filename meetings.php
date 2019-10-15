@@ -33,7 +33,74 @@
                                         <?php 
                                             $meetings = Meeting::by_days(0,2);
                                             if(!$meetings){
-                                                echo "No meetings today";
+                                                // echo "No meetings today";
+                                                ?>
+                                                    <div class="col-md-12">
+                                                        <div class="add-new-meeting">
+                                                            <div class="form">
+                                                                <div id="accordion">
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            You had no meetings today!!
+                                                                            
+                                                                            <a class="card-link " data-toggle="collapse" href="#collapseOne">
+                                                                                ADD NEW
+                                                                            </a>
+                                                                        </div>
+                                                                        <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 offset-md-3">
+                                                                                    <form id="add-new-meeting-form">
+                                                                                        <div class="form-group">
+                                                                                            <select name="from_id" class="form-control">
+                                                                                                <option value="">-SELECT-TO-WHOM-</option>
+                                                                                                <option value="1">Pooja</option>
+                                                                                                <option value="2">Akhil</option>
+                                                                                                <option value="3">Rohit</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <select name="college_id" class="form-control">
+                                                                                                <option value="">-SELECT-COLLEGE-</option>
+                                                                                                <option value="1">Stratford University</option>
+                                                                                                <option value="2">Amity University</option>
+                                                                                                <option value="3">Harvard University</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <select name="quality" class="form-control">
+                                                                                                <option value="">-SELECT-QUALITY-</option>
+                                                                                                <option value="HOT">Hot</option>
+                                                                                                <option value="WARM">Warm</option>
+                                                                                                <option value="COLD">Cold</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                <?php
                                             }else{
                                                 foreach($meetings as $meeting){
                                                     ?>
