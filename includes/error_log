@@ -1,0 +1,25 @@
+[08-Oct-2019 17:24:18 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/henrqfaw/public_html/ip/includes/config.php on line 15
+[08-Oct-2019 18:42:30 America/New_York] PHP Notice:  Undefined index: email in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 89
+[08-Oct-2019 18:42:30 America/New_York] PHP Notice:  Undefined index: number in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 90
+[08-Oct-2019 18:42:30 America/New_York] PHP Notice:  Undefined index: course_id in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 91
+[08-Oct-2019 18:42:30 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Batch' not found in /home/henrqfaw/public_html/ip/includes/validate_globals.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 95
+[08-Oct-2019 18:47:24 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Batch' not found in /home/henrqfaw/public_html/ip/includes/validate_globals.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 99
+[08-Oct-2019 18:50:32 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Batch' not found in /home/henrqfaw/public_html/ip/includes/validate_globals.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 99
+[08-Oct-2019 18:52:01 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Batch' not found in /home/henrqfaw/public_html/ip/includes/validate_globals.php:99
+Stack trace:
+#0 {main}
+  thrown in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 99
+[08-Oct-2019 19:33:09 America/New_York] PHP Recoverable fatal error:  Object of class mysqli could not be converted to string in /home/henrqfaw/public_html/ip/includes/classes/Batch.php on line 231
+[09-Oct-2019 01:46:51 America/New_York] PHP Notice:  Undefined index: zoom_url in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 92
+[09-Oct-2019 01:52:43 America/New_York] PHP Notice:  Undefined index: type in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 91
+[09-Oct-2019 01:58:26 America/New_York] PHP Notice:  Undefined index: zoom_url in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 92
+[11-Oct-2019 01:42:13 America/New_York] PHP Notice:  Undefined index: zoom_url in /home/henrqfaw/public_html/ip/includes/validate_globals.php on line 92

@@ -1,0 +1,29 @@
+.ambassador-form-div{
+	padding:50px;
+	transition: height 2s;
+	display:none;
+}
+
+#add-ambassador-success-alert{
+	display:none;
+}
+
+.college-form-div{
+	padding:50px;
+	transition: height 2s;
+	display:none;
+}
+
+#add-college-success-alert{
+	display:none;
+}
+
+.batch-form-div{
+	padding:50px;
+	transition: height 2s;
+	display:none;
+}
+
+#add-batch-success-alert{
+	display:none;
+}
