@@ -299,6 +299,17 @@
             }
         }
 
+        //Function to return count
+        public static function count(){
+            $sql = "SELECT * FROM batches";
+            $res = Database::select($sql);
+            if(mysqli_num_rows($res)>0){
+                return mysqli_num_rows($res);
+            }
+            return 0;
+        
+        }
+
 
 
 

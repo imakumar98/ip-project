@@ -5,7 +5,7 @@
 
     class Database{
         
-        //STATIC FUNCTION TO GET CONNECTION
+        //Static function to get connection
         public static function get_connection(){
             $connection = mysqli_connect(HOST , DB_USER, DB_PASS, DB_NAME);
             if(!$connection){
@@ -16,7 +16,7 @@
         }
 
 
-        //STATIC FUNCTION TO RUN INSERT QUERY
+        //Static function to run insert query
         public static function insert($sql){
             $connection = self::get_connection();
             $result = mysqli_query($connection, $sql);
@@ -58,7 +58,7 @@
             $result = mysqli_query($connection, $sql);
 
             if(!$result){
-                return self::get_query_error_message($sql);
+                die(mysqli_error($connection));
             }else{
                 return true;
             }
@@ -82,6 +82,12 @@
             $connection = self::get_connection();
             return "Your Query : ". $sql. " failed due to ".mysqli_error($connection);
             
+        }
+
+        //Function to return hash
+        public static function get_hash($string){
+            $string = HASHING_SALT.$string;
+            return sha1($string);
         }
 
 

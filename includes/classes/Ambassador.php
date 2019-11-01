@@ -18,8 +18,7 @@
 
         //FUNCTION TO GET AMBASSADOR
         public static function by_college($id){
-            $connection = Database::get_connection();
-
+            
             $sql = "SELECT * FROM ambassadors WHERE college_id = $id";
 
             $result = Database::select($sql);
@@ -170,6 +169,17 @@
             }else{
                 return 'Invalid Parameters';
             }
+        }
+
+        //Function to return count
+        public static function count(){
+            $sql = "SELECT * FROM ambassadors";
+            $res = Database::select($sql);
+            if(mysqli_num_rows($res)>0){
+                return mysqli_num_rows($res);
+            }
+            return 0;
+           
         }
 
 

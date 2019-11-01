@@ -26,16 +26,21 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="dashboard.php">
+                <a class="nav-link" href="index.php">
                   <i class="material-icons">home</i>
                   <span>Dashboard</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link " href="colleges.php">
-                <i class="material-icons">school</i>							
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                  <i class="material-icons">school</i>
                   <span>Collegewise</span>
                 </a>
+               <div class="dropdown-menu dropdown-menu-small">
+                  <a class="dropdown-item " href="colleges-ambassador.php">Ambassadors</a>
+                  <a class="dropdown-item " href="colleges-eoi.php">EOI</a>
+                  
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="add-new-post.html">
@@ -55,11 +60,29 @@
                   <span>Batches</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link " href="tables.html">
                   <i class="material-icons">settings_applications</i>
                   <span>Settings</span>
                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="users.php">
+                  <i class="material-icons">supervised_user_circle</i>
+                  <span>Manage Users</span>
+                </a>
+              </li> -->
+              
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                  <i class="material-icons">settings_applications</i>
+                  <span>Settings</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small">
+                  <a class="dropdown-item " href="users.php">Manage Users</a>
+                  
+                </div>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link " href="user-profile-lite.html">

@@ -15,11 +15,17 @@
     //Import Date class
     require_once('classes/Date.php');
 
-    //Import Batch Class
+    //Import Batch class
     require_once('classes/Batch.php');
 
-    //Import Meeting Class
+    //Import Meeting class
     require_once('classes/Meeting.php');
+
+    //Import User class
+    require_once('classes/User.php');
+
+    //Import EOI class
+    require_once('classes/EOI.php');
 
     //Import html function file
     require_once('html_functions.php');

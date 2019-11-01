@@ -4,9 +4,14 @@
 
 
 
-    $meeting = new Meeting();
+//    $user = new User();
 
-    echo $meeting->create('Cricket', 2, 'HOT', 'IDK', 'Complete section 2', '10-11-19', 4, 2);
+//    $user->create('Neesha','neesha@gmail.com','neesha12345',2);
+
+   $eoi = new EOI();
+
+
+   echo $eoi->create('Ashwani', 'aksingh99903@gmail.com', '9540387609', 2, 2, 4, 2, 1)
 
 
 

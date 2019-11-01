@@ -7,6 +7,7 @@
    DEFINE('DB_PASS','');
    DEFINE('ENV','DEV'); //
    DEFINE('DEVELOPER_MAIL','imakumar98@gmail.com');
+   DEFINE('HASHING_SALT','thisissecrettext');
 
 
 

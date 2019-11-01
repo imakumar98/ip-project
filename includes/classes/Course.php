@@ -10,10 +10,15 @@
 
         
         //Function to get all course list
-        public static function all(){
-            $connection = Database::get_connection();
+        public static function all($type){
+            $is_subject;
+            if($type=='inner'){
+                $is_subject = 1;
+            }else if($type=='outer'){
+                $is_subject = 0;
+            }
 
-            $sql = "SELECT * FROM courses";
+            $sql = "SELECT * FROM courses WHERE is_subject = $is_subject";
 
             $result = Database::select($sql);
 
@@ -45,7 +50,6 @@
             $this->name = $name;
             $this->active = 0;
             
-            $connection = Database::get_connection();
 
             $sql = "INSERT INTO courses (name, active) VALUES ('$this->name', '$this->active');";
             

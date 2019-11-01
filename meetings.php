@@ -7,7 +7,7 @@
         <?php require_once('partials/header_files.php'); ?>
         <style>
 
-            .today-meetings{
+            .today-meetings, .last-seven-days-meetings{
                 margin-bottom:50px;
             }
 
@@ -53,6 +53,7 @@
                                                                                     <div class="col-md-6 offset-md-3">
                                                                                     <form id="add-new-meeting-form">
                                                                                         <div class="form-group">
+                                                                                            <label>To Whom You Are Meeting</label>
                                                                                             <select name="from_id" class="form-control">
                                                                                                 <option value="">-SELECT-TO-WHOM-</option>
                                                                                                 <option value="1">Pooja</option>
@@ -61,6 +62,7 @@
                                                                                             </select>
                                                                                         </div>
                                                                                         <div class="form-group">
+                                                                                            <label>Select College</label>
                                                                                             <select name="college_id" class="form-control">
                                                                                                 <option value="">-SELECT-COLLEGE-</option>
                                                                                                 <option value="1">Stratford University</option>
@@ -69,9 +71,11 @@
                                                                                             </select>
                                                                                         </div>
                                                                                         <div class="form-group">
+                                                                                            <label>Topic</label>
                                                                                             <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
                                                                                         </div>
                                                                                         <div class="form-group">
+                                                                                            <label>Quality</label>
                                                                                             <select name="quality" class="form-control">
                                                                                                 <option value="">-SELECT-QUALITY-</option>
                                                                                                 <option value="HOT">Hot</option>
@@ -80,14 +84,18 @@
                                                                                             </select>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                            <label>Current Stage</label>
+                                                                                            <input class="form-control" type="text" placeholder="Current stage is..." name="current_stage"/>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                            <label>Next Step</label>
+                                                                                            <input class="form-control" type="text" placeholder="Next step is..." name="next_step"/>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control" type="text" placeholder="Type Topic" name="topic"/>
+                                                                                            <label>Next Date</label>
+                                                                                            <input class="form-control" type="date" name="next_date"/>
                                                                                         </div>
+                                                                                        <input type="submit" class="btn btn-block btn-primary" name="addMeeting" value="SAVE"/>
                                                                                     </form>
                                                                                     </div>
                                                                                 </div>
@@ -140,64 +148,68 @@
                                     </div>
                                 </div>
 
-                                <div class="today-meetings">
-                                    <h5>Yesterday</h5>
+                                <div class="last-seven-days-meetings">
+                                    <h5>Last 7 days</h5>
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="card card-small">
-                                                <div class="card-body">
-                                                    <div class="meeting-details text-center">
-                                                        <p>Date: 10 Aug 2018</p>
-                                                        <h3>Akhil</h3>
-                                                        <b><p style="margin-bottom:0px">TOPIC: VIZAG</p></b>
-                                                        <b><p>(Amity University)</p></b>
-                                                        <hr>
-                                                        <div class="meeting-decription">
-                                                            <div class="current-stage">
-                                                                This is current stage
+                                        <?php 
+                                            $meetings = Meeting::by_days(7,2);
+                                            if(!$meetings){
+                                                // echo "No meetings";
+                                                ?>
+                                                
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                You had no from last week 
+                                                                
                                                             </div>
-                                                            <div class="next-step">
-                                                                This is next step
-                                                            </div>
-                                                            <div class="next-date">
-                                                                This is next date
-                                                            </div>
-                                                            
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                        <div class="col-md-2">
-                                            <div class="card card-small">
-                                                <div class="card-body">
-                                                    <div class="meeting-details text-center">
-                                                        <p>Date: 10 Aug 2018</p>
-                                                        <h3>Ashwani</h3>
-                                                        <b><p style="margin-bottom:0px">TOPIC: VIZAG</p></b>
-                                                        <b><p>(Amity University)</p></b>
-                                                        <hr>
-                                                        <div class="meeting-decription">
-                                                            <div class="current-stage">
-                                                                This is current stage
+                                                    
+                                                    
+                                                    
+                                                <?php
+                                            }else{
+                                                foreach($meetings as $meeting){
+                                                    ?>
+                                                    <div class="col-md-2">
+                                                            <div class="card card-small" class="meeting-card">
+                                                                <div class="card-body">
+                                                                    <div class="meeting-details text-center">
+                                                                        <p>Date: <?php echo $meeting->datetime; ?></p>
+                                                                        <h3><?php echo $meeting->from_id; ?></h3>
+                                                                        <b><p style="margin-bottom:0px">TOPIC: <?php echo $meeting->topic ?></p></b>
+                                                                        <b><p>(<?php echo $meeting->college_id; ?>)</p></b>
+                                                                        <hr>
+                                                                        <div class="meeting-decription">
+                                                                            <div class="current-stage">
+                                                                                <?php echo $meeting->current_stage; ?>
+                                                                            </div>
+                                                                            <div class="next-step">
+                                                                                <?php echo $meeting->next_step; ?>
+                                                                            </div>
+                                                                            <div class="next-date">
+                                                                                <?php echo $meeting->next_date; ?>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="next-step">
-                                                                This is next step
-                                                            </div>
-                                                            <div class="next-date">
-                                                                This is next date
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> 
+                                                        </div> 
+                                                    <?php
+                                                }
+                                            }
+                                           
+
+                                        ?>
+                                        
+                                        
                                     </div>
                                 </div>
 
                                 <div class="today-meetings">
-                                    <h5>18 Sept 2019</h5>
+                                    <h5>Last 14 Days</h5>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="card card-small">

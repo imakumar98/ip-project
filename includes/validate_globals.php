@@ -3,6 +3,8 @@
     require_once('classes/College.php');
     require_once('classes/Ambassador.php');
     require_once('classes/Batch.php');
+    require_once('classes/User.php');
+    require_once('classes/EOI.php');
     require_once('common_functions.php');
     
 
@@ -115,6 +117,57 @@
     	// 	echo get_json_response('NA', 400, 'Batch Creation Failed', false, true);
 
     	// }
+    }
+
+
+    //Change user status
+    if(isset($_POST['change_status']) && isset($_POST['user_id'])){
+        $user_id = Database::escaped_string($_POST['user_id']);
+        $update_status_to = User::change_status($user_id);
+        echo $update_status_to;
+    }
+
+
+    //Add EOI
+    if(isset($_POST['addEOI'])){
+        $name = Database::escaped_string($_POST['name']);
+    	$email = Database::escaped_string($_POST['email']);
+    	$number = Database::escaped_string($_POST['number']);
+    	$course_id = Database::escaped_string($_POST['course_id']);
+        $college_id = Database::escaped_string($_POST['college_id']);
+        $ambassador_id = Database::escaped_string($_POST['ambassador_id']);
+        $is_payment_received = Database::escaped_string($_POST['is_payment_received']);
+    	
+    	//Validate Values
+    	$eoi = new EOI();
+
+    	//Fecth User Id
+    	//$user_id = User::id;
+
+    	$user_id = 1;
+    	
+    	$created_id = $eoi->create($name, $email, $number, $college_id, $user_id, $course_id, $ambassador_id, $is_payment_received);
+    	if($created_id){
+    		echo get_json_response($created_id, 201, 'Ambassador Created Successfully', true, false);
+    	}else{
+    		echo get_json_response('NA', 400, 'Ambassador Creation Failed', false, true);
+
+    	}
+    }
+
+
+    if(isset($_POST['updatePaymentStatus'])){
+        $is_payment_received = Database::escaped_string($_POST['is_payment_received']);
+        $eoi_id = Database::escaped_string($_POST['eoi_id']);
+        $amount = Database::escaped_string($_POST['amount']);
+
+
+        $eoi = new EOI();
+
+        $eoi->update_payment($eoi_id, $amount, $is_payment_received);
+
+
+
     }
 
 

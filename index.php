@@ -5,6 +5,18 @@
         <?php get_page_title('Dashboard'); ?>
         <?php require_once('partials/meta_tags.php'); ?>
         <?php require_once('partials/header_files.php'); ?>
+        <style>
+            .count-blocks .label{
+              font-size:0.75rem;
+              color:#818ea3;
+              letter-spacing:.0625rem;
+            }
+            .count-blocks .count{
+              margin-top:15px;
+              font-size:2rem;
+               font-weight:500;
+            }
+        </style>
     </head>
     <body class="h-100">
         <div class="container-fluid">
@@ -19,82 +31,52 @@
                                 <!-- Small Stats Blocks -->
                                 <div class="row">
                                   <div class="col-lg col-md-6 col-sm-6 mb-4">
-                                    <div class="stats-small stats-small--1 card card-small">
-                                      <div class="card-body p-0 d-flex">
-                                        <div class="d-flex flex-column m-auto">
-                                          <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Posts</span>
-                                            <h6 class="stats-small__value count my-3">2,390</h6>
-                                          </div>
-                                          <div class="stats-small__data">
-                                            <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
-                                          </div>
+                                    <div class="card count-blocks">
+                                      <div class="card-body">
+                                        <div class="text-center">
+                                          <span class="text-uppercase label">Ambassador Count</span>
+                                            <h6 class="count"><b><?php echo Ambassador::count(); ?></b></h6>
                                         </div>
-                                        <canvas height="120" class="blog-overview-stats-small-1"></canvas>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col-lg col-md-6 col-sm-6 mb-4">
-                                    <div class="stats-small stats-small--1 card card-small">
-                                      <div class="card-body p-0 d-flex">
-                                        <div class="d-flex flex-column m-auto">
-                                          <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Pages</span>
-                                            <h6 class="stats-small__value count my-3">182</h6>
-                                          </div>
-                                          <div class="stats-small__data">
-                                            <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
-                                          </div>
+                                    <div class="card count-blocks">
+                                      <div class="card-body">
+                                        <div class="text-center">
+                                          <span class="text-uppercase label">EOI Count</span>
+                                            <h6 class="count"><b><?php echo EOI::count(); ?></b></h6>
                                         </div>
-                                        <canvas height="120" class="blog-overview-stats-small-2"></canvas>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-lg col-md-4 col-sm-6 mb-4">
-                                    <div class="stats-small stats-small--1 card card-small">
-                                      <div class="card-body p-0 d-flex">
-                                        <div class="d-flex flex-column m-auto">
-                                          <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Comments</span>
-                                            <h6 class="stats-small__value count my-3">8,147</h6>
-                                          </div>
-                                          <div class="stats-small__data">
-                                            <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
-                                          </div>
+                                  <div class="col-lg col-md-6 col-sm-6 mb-4">
+                                    <div class="card count-blocks">
+                                      <div class="card-body">
+                                        <div class="text-center">
+                                          <span class="text-uppercase label">Payment received Count</span>
+                                            <h6 class="count"><b><?php echo EOI::paymentCount(); ?></b></h6>
                                         </div>
-                                        <canvas height="120" class="blog-overview-stats-small-3"></canvas>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-lg col-md-4 col-sm-6 mb-4">
-                                    <div class="stats-small stats-small--1 card card-small">
-                                      <div class="card-body p-0 d-flex">
-                                        <div class="d-flex flex-column m-auto">
-                                          <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Users</span>
-                                            <h6 class="stats-small__value count my-3">2,413</h6>
-                                          </div>
-                                          <div class="stats-small__data">
-                                            <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
-                                          </div>
+                                  <div class="col-lg col-md-6 col-sm-6 mb-4">
+                                    <div class="card count-blocks">
+                                      <div class="card-body">
+                                        <div class="text-center">
+                                          <span class="text-uppercase label">Batch Count Count</span>
+                                            <h6 class="count"><b><?php echo Batch::count(); ?></b></h6>
                                         </div>
-                                        <canvas height="120" class="blog-overview-stats-small-4"></canvas>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-lg col-md-4 col-sm-12 mb-4">
-                                    <div class="stats-small stats-small--1 card card-small">
-                                      <div class="card-body p-0 d-flex">
-                                        <div class="d-flex flex-column m-auto">
-                                          <div class="stats-small__data text-center">
-                                            <span class="stats-small__label text-uppercase">Subscribers</span>
-                                            <h6 class="stats-small__value count my-3">17,281</h6>
-                                          </div>
-                                          <div class="stats-small__data">
-                                            <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
-                                          </div>
+                                  <div class="col-lg col-md-6 col-sm-6 mb-4">
+                                    <div class="card count-blocks">
+                                      <div class="card-body">
+                                        <div class="text-center">
+                                          <span class="text-uppercase label">Total Colleges</span>
+                                            <h6 class="count"><b><?php echo College::count(); ?></b></h6>
                                         </div>
-                                        <canvas height="120" class="blog-overview-stats-small-5"></canvas>
                                       </div>
                                     </div>
                                   </div>
@@ -111,14 +93,24 @@
                                             <ul class="list-group list-group-small list-group-flush" id="ambassador-list">
                                                 <?php 
                                                     $ambassadors = Ambassador::by_days(0);
-                                                    foreach($ambassadors as $ambassador){
-                                                        ?>
-                                                        <li class="list-group-item d-flex px-3">
-                                                            <span class="text-semibold text-fiord-blue"><?php echo $ambassador->name; ?></span>
-                                                            <span class="ml-auto text-right text-semibold text-reagent-gray"><?php echo $ambassador->user_id; ?></span>
-                                                        </li>
-                                                        <?php
+
+                                                    if(!$ambassadors){
+                                                      ?>
+                                                      <li class="list-group-item d-flex px-3">
+                                                        <span class="text-semibold text-fiord-blue">No Ambassadors Added Today</span>
+                                                      </li>
+                                                      <?php 
+                                                    }else{
+                                                      foreach($ambassadors as $ambassador){
+                                                          ?>
+                                                          <li class="list-group-item d-flex px-3">
+                                                              <span class="text-semibold text-fiord-blue"><?php echo $ambassador->name; ?></span>
+                                                              <span class="ml-auto text-right text-semibold text-reagent-gray"><?php echo $ambassador->user_id; ?></span>
+                                                          </li>
+                                                          <?php
+                                                      }
                                                     }
+                                                    
                                                 ?>
                                             </ul>
                                           </div>

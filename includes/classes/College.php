@@ -134,10 +134,24 @@
             }
         }
 
+        //Function to return count
+        public static function count(){
+            $sql = "SELECT * FROM colleges";
+            $res = Database::select($sql);
+            if(mysqli_num_rows($res)>0){
+                return mysqli_num_rows($res);
+            }
+            return 0;
+        
+        }
+
 
 
 
     }
+
+
+     
 
 
 

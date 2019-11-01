@@ -19,6 +19,12 @@ $(document).ready(function(){
 		$('#batch-form-div').css('display','block');
 	});
 
+	//ADD BATCH BUTTON CLICK
+	$('#add-eoi-button').on('click',function(){
+		$(this).prop('disabled',true);
+		$('#eoi-form-div').css('display','block');
+	});
+
 
 	//ADD AMBASSADOR FORM SUBMISSION
 	$('#add-ambassador-form').on('submit',function(event){
@@ -107,6 +113,34 @@ $(document).ready(function(){
 			}
 		});
 
+	});
+
+
+
+
+
+	$('.user-action-buttons').each(function(){
+		$(this).on('click',function(){
+			var user_id = $(this).attr('data-user');
+			$.ajax({
+				url:'includes/validate_globals.php',
+				data: 'change_status=true'+'&user_id='+user_id,
+				method: 'POST',
+				success:function(res){
+					console.log("Change status to "+res);
+				}
+			});
+		})
+	});
+
+
+
+	$('.payment-update-button').each(function(){
+		$(this).on('click',function(){
+			var eoi_id = $(this).attr('data-id');
+			console.log(eoi_id);
+			$('#payment-update-eoi-id').val(eoi_id);
+		});
 	});
 
 

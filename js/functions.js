@@ -16,6 +16,8 @@ function submitThisForm(event, formId){
 
     var data = $('#'+formId).serialize();
 
+    console.log(data);
+
     $.ajax({
         url: 'includes/validate_globals.php',
         method: 'POST',
@@ -38,8 +40,17 @@ function submitThisForm(event, formId){
             // }
             // console.log(response);
 
-            window.location.reload();
+            // if(response.success){
+            //     window.location.reload();
+            // }else{
+            //     console.log('SOmething went wrong');
+            // }
+
+            // window.location.reload();
+
+            console.log(response);
+
+           
         }
     });
-
 }
